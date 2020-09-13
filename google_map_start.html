@@ -11,16 +11,41 @@
 </head>
 <body>
 
-<div id="navbar">EcoMAP</div>    
+<div id="navbar">EcoMAP</div> 
+<div id="infobox">
+    <div id="infotitle">현재날짜</div>
+    <div id="infocontent">2020.09.13</div>
+</div>   
 <div id="map" style="width:100%;height:100vh;"></div>
 
 <script>
 var mapOptions = {
-    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    center: new naver.maps.LatLng(37.337162, 127.947725),
     zoom: 10
 };
 
 var map = new naver.maps.Map('map', mapOptions);
+
+
+// 국립공원연구원 37.337162, 127.947725
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(37.337162, 127.947725),
+    map: map,
+    // 마커모습을 변경하기
+    icon: {
+        content: "<div class='marker'></div>"
+    }
+});
+
+
+var marker = new naver.maps.Marker({
+    position: new naver.maps.LatLng(37.437162, 127.847725),
+    map: map,
+    // 마커모습을 변경하기 : css로 변경
+    icon: {
+        content: "<div class='marker'></div>"
+    }
+});
 </script>
 </body>
 </html>
