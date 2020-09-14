@@ -18,6 +18,9 @@
 </div>   
 <div id="map" style="width:100%;height:100vh;"></div>
 
+<!-- 외부자료 불러오기 -->
+<script type="text/javascript" src="data/data.js"></script>
+
 <script>
 var mapOptions = {
     center: new naver.maps.LatLng(37.337162, 127.947725),
@@ -27,25 +30,22 @@ var mapOptions = {
 var map = new naver.maps.Map('map', mapOptions);
 
 
-// 국립공원연구원 37.337162, 127.947725
-var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(37.337162, 127.947725),
-    map: map,
-    // 마커모습을 변경하기
-    icon: {
-        content: "<div class='marker'></div>"
-    }
-});
+for (i in data) {
 
+    var target = data[i];
 
-var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(37.437162, 127.847725),
-    map: map,
-    // 마커모습을 변경하기 : css로 변경
-    icon: {
-        content: "<div class='marker'></div>"
-    }
-});
+    var latlng = new naver.maps.LatLng(target.위도, target.경도);
+
+    marker = new naver.maps.Marker({
+        map: map,
+        position: latlng,
+        icon: {
+            content: "<div class='marker'></div>",
+        },
+    
+    });       
+}
+
 </script>
 </body>
 </html>
